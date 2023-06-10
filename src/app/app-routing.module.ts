@@ -14,7 +14,6 @@ const routes: Routes = [
   {
     path: 'home',
     loadChildren: () => import('./pages/home/home.module').then( m => m.HomePageModule),
-    canActivate: [AuthGuard]
   },
   
   {
@@ -42,8 +41,13 @@ const routes: Routes = [
   //   loadChildren: () => import('./pages/bills-add/bills-add.module').then( m => m.BillsAddPageModule)
   // },
 
+  
+  {
+    path: 'egresos',
+    loadChildren: () => import('./pages/egresos/egresos.module').then( m => m.EgresosPageModule)
+  },
+  
   { path: '**', redirectTo: 'login', pathMatch: 'full'},
-
 
 ];
 @NgModule({
@@ -59,4 +63,6 @@ const routes: Routes = [
   ],
   exports: [RouterModule]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }
+
+
