@@ -1,0 +1,63 @@
+<app-header title="Roles" ira="/home"></app-header>
+
+<ion-content [fullscreen]="true">
+  <div class="section-content">
+    <ion-list>
+      <ion-list-header>
+        <ion-label>Roles</ion-label>
+        <ion-button class="ion-text-capitalize" id="open-modal"
+          >Agregar</ion-button
+        >
+      </ion-list-header>
+
+      <ion-item class="list-item" (click)="ira()">
+        <ion-thumbnail slot="start">
+          <img src="../../../assets/icon/statistics.svg" class="item-image" />
+        </ion-thumbnail>
+        <ion-label>
+          <h2 class="item-title">Supervisor</h2>
+          <h3 class="item-amount"><span>10</span></h3>
+        </ion-label>
+      </ion-item>
+
+      <ion-item class="list-item">
+        <ion-thumbnail slot="start">
+          <img src="../../../assets/icon/statistics.svg" class="item-image" />
+        </ion-thumbnail>
+        <ion-label>
+          <h2 class="item-title">Gerente</h2>
+          <h3 class="item-amount"><span>5</span></h3>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+  </div>
+
+  <ion-modal trigger="open-modal" (willDismiss)="onWillDismiss($event)">
+    <ng-template>
+      <ion-header>
+        <ion-toolbar>
+          <ion-buttons slot="start">
+            <ion-button (click)="cancel()">Cancel</ion-button>
+          </ion-buttons>
+          <ion-buttons slot="end">
+            <ion-button (click)="confirm()" [strong]="true">Confirm</ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content class="ion-padding">
+
+        <form>
+          <ion-item fill="outline">
+            <ion-icon class="icon-input" name="person" slot="start"></ion-icon>
+            <ion-label position="floating">Rol</ion-label>
+            <ion-input type="text"></ion-input>
+          </ion-item>
+        </form>
+
+
+      </ion-content>
+    </ng-template>
+  </ion-modal>
+
+
+</ion-content>

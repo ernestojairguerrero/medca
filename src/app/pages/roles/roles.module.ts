@@ -4,9 +4,9 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { StorefrontPageRoutingModule } from './storefront-routing.module';
+import { RolesPageRoutingModule } from './roles-routing.module';
 
-import { StorefrontPage } from './storefront.page';
+import { RolesPage } from './roles.page';
 import { ComponentsModule } from 'src/app/components/components.module';
 
 @NgModule({
@@ -14,9 +14,9 @@ import { ComponentsModule } from 'src/app/components/components.module';
     CommonModule,
     FormsModule,
     IonicModule,
-    StorefrontPageRoutingModule,
+    RolesPageRoutingModule,
     ComponentsModule
   ],
-  declarations: [StorefrontPage]
+  declarations: [RolesPage]
 })
-export class StorefrontPageModule {}
+export class RolesPageModule {}

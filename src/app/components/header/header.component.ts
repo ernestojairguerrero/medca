@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 export class HeaderComponent  implements OnInit {
 
     @Input() title: string = '';
+    @Input() ira: string = '';
 
   
     constructor(
