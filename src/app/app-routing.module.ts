@@ -33,7 +33,7 @@ const routes: Routes = [
   {
     path: 'banks',
     loadChildren: () =>
-      import('./pages/banks/banks.module').then((m) => m.BanksPageModule),
+      import('./pages/bancos/banks/banks.module').then((m) => m.BanksPageModule),
   },
   {
     path: 'ganancias',
@@ -45,7 +45,7 @@ const routes: Routes = [
   {
     path: 'ganancias-add',
     loadChildren: () =>
-      import('./pages/ganancias-add/ganancias-add.module').then(
+      import('./pages/ganancias/ganancias-add/ganancias-add.module').then(
         (m) => m.GananciasAddPageModule
       ),
   },
@@ -62,72 +62,21 @@ const routes: Routes = [
     loadChildren: () =>
       import('./pages/roles/roles.module').then((m) => m.RolesPageModule),
   },
-  { path: '**', redirectTo: 'login', pathMatch: 'full' },  {
+  {
     path: 'egresos',
     loadChildren: () => import('./pages/egresos/egresos.module').then( m => m.EgresosPageModule)
   },
   {
     path: 'egresos-add',
-    loadChildren: () => import('./pages/egresos-add/egresos-add.module').then( m => m.EgresosAddPageModule)
+    loadChildren: () => import('./pages/egresos/egresos-add/egresos-add.module').then( m => m.EgresosAddPageModule)
   },
 
-<<<<<<< HEAD
-];
-@NgModule({
-  imports: [
-    BrowserModule,
-    RouterModule.forRoot(routes, {
-      preloadingStrategy: PreloadAllModules,
-      scrollPositionRestoration: 'enabled',
-      useHash: true,
-    }),
-  ],
-  exports: [RouterModule],
-})
-export class AppRoutingModule {}
-=======
-  {
-    path: 'profits',
-    loadChildren: () =>
-      import('./pages/profits/profits.module').then((m) => m.ProfitsPageModule),
-  },
-  {
-    path: 'settings',
-    loadChildren: () =>
-      import('./pages/settings/settings.module').then(
-        (m) => m.SettingsPageModule
-      ),
-  },
-  {
-    path: 'banks',
-    loadChildren: () => import('./pages/bancos/banks/banks.module').then( m => m.BanksPageModule)
-  },
-  {
-    path: 'add-banks',
-    loadChildren: () => import('./pages/bancos/add-bank/add-bank.module').then( m => m.AddBankPageModule)
-  },
-  {
-    path: 'ingresos',
-    loadChildren: () => import('./pages/ingresos/bills.module').then( m => m.IngresosModule)
-  },
-  // {
-  //   path: 'bills-add',
-  //   loadChildren: () => import('./pages/bills-add/bills-add.module').then( m => m.BillsAddPageModule)
-  // },
 
-  {
-    path: 'usuarios',
-    loadChildren: () =>
-      import('./pages/usuarios/usuarios.module').then(
-        (m) => m.UsuariosPageModule
-      ),
-  },
-  {
-    path: 'roles',
-    loadChildren: () =>
-      import('./pages/roles/roles.module').then((m) => m.RolesPageModule),
-  },
+
+
+
   { path: '**', redirectTo: 'login', pathMatch: 'full' },
+
 ];
 @NgModule({
   imports: [
@@ -141,4 +90,3 @@ export class AppRoutingModule {}
   exports: [RouterModule],
 })
 export class AppRoutingModule {}
->>>>>>> 0b7448e483ea921374abf8092928b368c5d2b2fe
