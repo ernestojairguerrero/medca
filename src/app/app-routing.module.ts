@@ -32,6 +32,7 @@ const routes: Routes = [
     path: 'add-banks',
     loadChildren: () => import('./pages/bancos/add-bank/add-bank.module').then( m => m.AddBankPageModule)
   },
+<<<<<<< HEAD
   // {
   //   path: 'ingresos',
   //   loadChildren: () => import('./pages/').then( m => m.BillsPageModule)
@@ -40,6 +41,12 @@ const routes: Routes = [
   //   path: 'bills-add',
   //   loadChildren: () => import('./pages/bills-add/bills-add.module').then( m => m.BillsAddPageModule)
   // },
+=======
+  {
+    path: 'ingresos',
+    loadChildren: () => import('./pages/ingresos/ingresos/ingresos.module').then( m => m.IngresosPageModule)
+  },
+>>>>>>> 96b53e7e474289212f85a65428da4f455537aa5d
 
   
   {
@@ -47,7 +54,12 @@ const routes: Routes = [
     loadChildren: () => import('./pages/egresos/egresos.module').then( m => m.EgresosPageModule)
   },
   
+  {
+    path: 'edit-ingresos',
+    loadChildren: () => import('./pages/ingresos/edit-ingresos/edit-ingresos.module').then( m => m.EditIngresosPageModule)
+  },
   { path: '**', redirectTo: 'login', pathMatch: 'full'},
+
 
 ];
 @NgModule({

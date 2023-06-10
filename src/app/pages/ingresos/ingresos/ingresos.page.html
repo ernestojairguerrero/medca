@@ -1,4 +1,5 @@
-<app-header title="Ingresos" ira="/home"></app-header>
+<app-header title="Ingresos" url="home"></app-header>
+
 
 <ion-content [fullscreen]="true" >
   
@@ -9,21 +10,24 @@
       <section class="ion-text-center">
         <ion-icon name="cash" class="ion-icon"></ion-icon>
         <h3>Total mensual</h3>
-        <h2 id="total-amount">S/ <span>4.207,75</span></h2>
+        <h2 id="total-amount">$150</h2>
       </section>
 
       <section class="ion-text-center">
         <ion-icon name="cash" class="ion-icon"></ion-icon>
         <h3>Total anual</h3>
-        <h2 id="total-amount">S/ <span>87.600,00</span></h2>
+        <h2 id="total-amount">$150</h2>
       </section>
       
     </ion-card>
     
     <ion-list>
+
       <ion-list-header>
-        <ion-label>Bancos</ion-label>
-        <ion-button class="ion-text-capitalize" (click)="ira()" expand="block" fill="outline" shape="round" color="primary">Agregar</ion-button>
+        <ion-label>Movimientos</ion-label>
+        <ion-button class="ion-text-capitalize" (click)="addBank()" expand="block" fill="outline" shape="round" color="primary">
+          Agregar
+        </ion-button>
       </ion-list-header>
 
 
@@ -32,8 +36,9 @@
           <img src="../../../assets/icon/statistics.svg" class="item-image" />
         </ion-thumbnail>
         <ion-label>
-          <h2 class="item-title">Banco Pichincha</h2>
-          <h3 class="item-amount">S/ <span>2.218,50</span></h3>
+          <h2 class="item-title">Título de la ganancia 1</h2>
+          <p class="item-date">Fecha de la ganancia</p>
+          <h3 class="item-amount">$50</h3>
         </ion-label>
       </ion-item>
   
@@ -42,17 +47,13 @@
           <img src="../../../assets/icon/statistics.svg" class="item-image" />
         </ion-thumbnail>
         <ion-label>
-          <h2 class="item-title">Banco Internancional</h2>
-          <h3 class="item-amount">S/ <span>2.218,50</span></h3>
+          <h2 class="item-title">Título de la ganancia 2</h2>
+          <p class="item-date">Fecha de la ganancia</p>
+          <h3 class="item-amount">$100</h3>
         </ion-label>
       </ion-item>
   
     </ion-list>
   </div>
 
-<<<<<<<< HEAD:src/app/pages/ganancias/ganancias.page.html
 </ion-content>
-========
-</ion-content>
-
->>>>>>>> 96b53e7e474289212f85a65428da4f455537aa5d:src/app/pages/ingresos-copy/bills.page.html
