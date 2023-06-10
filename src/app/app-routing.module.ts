@@ -4,11 +4,7 @@ import { AuthGuard } from './Guard/auth.guard';
 
 const routes: Routes = [
 
-  { path: '', redirectTo: 'login', pathMatch: 'full'},
-  // {
-  //   path: '',
-  //   loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
-  // },
+  // { path: '', redirectTo: 'login', pathMatch: 'full'},
 
   {
     path: 'login',
@@ -36,7 +32,16 @@ const routes: Routes = [
     loadChildren: () => import('./pages/storefront/storefront.module').then( m => m.StorefrontPageModule)
   },
 
-  { path: '**', redirectTo: 'login', pathMatch: 'full'}
+  { path: '**', redirectTo: 'login', pathMatch: 'full'},
+  {
+    path: 'banks',
+    loadChildren: () => import('./pages/banks/banks.module').then( m => m.BanksPageModule)
+  },
+  {
+    path: 'bills-add',
+    loadChildren: () => import('./pages/bills-add/bills-add.module').then( m => m.BillsAddPageModule)
+  }
+
 
 ];
 @NgModule({

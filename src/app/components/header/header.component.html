@@ -2,24 +2,13 @@
 
   <ion-toolbar class="header">
 
-    <ion-buttons [collapse]="true" slot="start">
-      <ion-button [routerLink]="['/settings']" routerLinkActive="router-link-active">
-        <ion-icon slot="icon-only" name="settings-outline"></ion-icon>
-      </ion-button>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
     </ion-buttons>
 
     <ion-title mode="ios">
-      <img alt="logo" height="40" src="../../../assets/icon/cellular-outline.svg">
       {{ title !== '' ? title : '' }}
     </ion-title>
-
-    <ion-buttons [collapse]="true" slot="end">
-
-      <ion-button [routerLink]="['/notifications']" routerLinkActive="router-link-active">
-        <ion-icon slot="icon-only" name="notifications-outline"></ion-icon>
-      </ion-button>
-
-    </ion-buttons>
 
   </ion-toolbar>
 </ion-header>

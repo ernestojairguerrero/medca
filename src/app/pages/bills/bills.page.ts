@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-bills',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BillsPage implements OnInit {
 
-  constructor() { }
+  private router = inject(Router);
+
 
   ngOnInit() {
+  }
+
+  ira(){
+    this.router.navigate(['/bills-add']);
+
   }
 
 }

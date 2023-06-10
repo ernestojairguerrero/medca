@@ -8,9 +8,6 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent  implements OnInit {
 
-    // tipo
-    @Input() tipo: string = '';
-    // general
     @Input() title: string = '';
 
   
@@ -19,13 +16,5 @@ export class HeaderComponent  implements OnInit {
     ) { }
   
     ngOnInit() {}
-  
-    // irTienda() {
-    //   this.router.navigateByUrl('/servicio');
-    // }
-  
-    // irCart() {
-    //   this.router.navigateByUrl('/servicio-pay');
-    // }
 
 }
