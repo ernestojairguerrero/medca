@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { MedcaService } from 'src/app/services/medca.service';
 
@@ -10,16 +11,24 @@ import { MedcaService } from 'src/app/services/medca.service';
 export class LoginPage implements OnInit {
 
   token = localStorage.getItem('token');
-
   listData: any[] = [];
 
   email: string;
   password: string;
 
+  loginForm: FormGroup;
+
   constructor(private _MedcaService: MedcaService, private router: Router) {}
 
   ngOnInit() {
     this.validateLogin();
+  }
+
+  initLoginForm() {
+    this.loginForm = new FormGroup({
+      email: new FormControl('', [Validators.required, Validators.email]),
+      password: new FormControl('', [Validators.required]),
+    });
   }
 
   login() {

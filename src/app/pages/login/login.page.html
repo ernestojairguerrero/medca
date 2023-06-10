@@ -1,38 +1,40 @@
 <ion-content fullscreen>
-  <div class="ion-content">
+
     <div class="login-container">
 
-      <div class="logo-container">
-        <span class="logo-icon">
-          <!-- <ion-icon name="library-outline"></ion-icon> -->
-          <img src="../../../assets/icon/LogoEmpresaTransp.png" slot="icon-only"/>
-        </span>
-        <h1 class="logo-text">BIENVENIDO</h1>
-      </div>
-
-      <form (ngSubmit)="login()">
-        <ion-item fill="outline">
-          <ion-icon class="icon-input" name="person" slot="start"></ion-icon>
-          <ion-label position="floating">Correo electrónico</ion-label>
-          <ion-input type="email" [(ngModel)]="email" name="email" required></ion-input>
-        </ion-item>
-        
-        <ion-item fill="outline">
-          <ion-icon class="icon-input" name="key" slot="start"></ion-icon>
-          <ion-label position="floating">Contraseña</ion-label>
-          <ion-input type="password" [(ngModel)]="password" name="password" required></ion-input>
-        </ion-item>
-  
-        <div class="password">
-          <a>¿Olvidaste tu contraseña?</a>
+      <div class="childContainer">
+        <div class="logo-container">
+          <span class="logo-icon">
+            <!-- <ion-icon name="library-outline"></ion-icon> -->
+            <img src="../../../assets/icon/LogoEmpresaTransp.png" slot="icon-only"/>
+          </span>
+          <h1 class="logo-text">BIENVENIDO</h1>
         </div>
   
-        <ion-button mode="ios" expand="block" shape="round" color="primary" type="submit">
-          <ion-icon name="log-in" slot="end"></ion-icon>
-          <ion-label>Iniciar sesión</ion-label>
-        </ion-button>
-      </form>
+        <form (ngSubmit)="login()">
+          <ion-item fill="outline">
+            <ion-icon class="icon-input" name="person" slot="start"></ion-icon>
+            <ion-label position="floating">Correo electrónico</ion-label>
+            <ion-input type="email" [(ngModel)]="email" name="email" required></ion-input>
+          </ion-item>
+          
+          <ion-item fill="outline">
+            <ion-icon class="icon-input" name="key" slot="start"></ion-icon>
+            <ion-label position="floating">Contraseña</ion-label>
+            <ion-input type="password" [(ngModel)]="password" name="password" required></ion-input>
+          </ion-item>
+    
+          <div class="recovery">
+            <a routerLink="/recover">¿Olvidaste tu contraseña?</a>
+          </div>
+    
+          <ion-button mode="ios" expand="block" shape="round" color="primary" type="submit">
+            <ion-icon name="log-in" slot="end"></ion-icon>
+            <ion-label>Iniciar sesión</ion-label>
+          </ion-button>
+        </form>
+      </div>
       
     </div>
-  </div>
+
 </ion-content>
