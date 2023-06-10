@@ -34,7 +34,7 @@ const routes: Routes = [
   },
   // {
   //   path: 'ingresos',
-  //   loadChildren: () => import('./pages/ingresos/bills.module').then( m => m.BillsPageModule)
+  //   loadChildren: () => import('./pages/').then( m => m.BillsPageModule)
   // },
   // {
   //   path: 'bills-add',
