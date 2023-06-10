@@ -34,7 +34,7 @@ const routes: Routes = [
   },
   {
     path: 'ingresos',
-    loadChildren: () => import('./pages/ingresos/bills.module').then( m => m.BillsPageModule)
+    loadChildren: () => import('./pages/ingresos/ingresos/ingresos.module').then( m => m.IngresosPageModule)
   },
   // {
   //   path: 'bills-add',
@@ -48,6 +48,11 @@ const routes: Routes = [
   },
   
   { path: '**', redirectTo: 'login', pathMatch: 'full'},
+  {
+    path: 'edit-ingresos',
+    loadChildren: () => import('./pages/ingresos/edit-ingresos/edit-ingresos.module').then( m => m.EditIngresosPageModule)
+  },
+
 
 ];
 @NgModule({
