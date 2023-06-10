@@ -1,14 +1,30 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>settings</ion-title>
+<ion-header [translucent]="true" class="ion-no-border">
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Mi perfil</ion-title>
   </ion-toolbar>
 </ion-header>
 
+
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">settings</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <div class="page-container">
+
+    <div class="profile">
+      <div class="avatar">
+        <ion-img src="https://i.pravatar.cc/300" alt="profile" /> 
+      </div>
+      <div class="profile-name">
+        <h2>{{user.name}}</h2>
+        <p>{{user.email}}</p>
+      </div>
+    </div>
+
+    
+    <ion-button class="mt-2 mb-3" (click)="logout()" expand="block" fill="outline" shape="round" color="primary">
+      Salir del sistema
+    </ion-button>
+  </div>
 
 </ion-content>

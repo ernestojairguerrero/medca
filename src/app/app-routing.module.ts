@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './Guard/auth.guard';
+import { BrowserModule } from '@angular/platform-browser';
 
 const routes: Routes = [
 
@@ -41,6 +42,7 @@ const routes: Routes = [
 ];
 @NgModule({
   imports: [
+    BrowserModule,
     RouterModule.forRoot(
       routes,
       {
