@@ -37,7 +37,13 @@ const routes: Routes = [
     loadChildren: () => import('./pages/storefront/storefront.module').then( m => m.StorefrontPageModule)
   },
 
-  { path: '**', redirectTo: 'login', pathMatch: 'full'}
+  
+  {
+    path: 'egresos',
+    loadChildren: () => import('./pages/egresos/egresos.module').then( m => m.EgresosPageModule)
+  },
+  
+  { path: '**', redirectTo: 'login', pathMatch: 'full'},
 
 ];
 @NgModule({
