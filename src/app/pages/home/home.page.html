@@ -21,7 +21,7 @@
       </div>
 
       <div class="childBoxContent">
-        <a class="boxesContent" routerLink="" *ngFor="let m of menu">
+        <a class="boxesContent" [routerLink]="m.url" *ngFor="let m of menu">
           <ion-img [src]="m.icon"></ion-img>
           <h3> {{m.title}} </h3>
         </a>

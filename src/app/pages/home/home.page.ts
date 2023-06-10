@@ -13,7 +13,7 @@ import { MedcaService } from 'src/app/services/medca.service';
 export class HomePage implements OnInit {
 
   menu = [
-    { title: 'Ingresos', icon: '../../../assets/home/earnings.svg', url: '' },
+    { title: 'Ingresos', icon: '../../../assets/home/earnings.svg', url: '/bills' },
     { title: 'Egresos', icon: '../../../assets/home/reports.svg', url: '' },
     { title: 'Informe', icon: '../../../assets/home/reports.svg', url: '' },
     { title: 'Graficos', icon: '../../../assets/home/graphics.svg', url: '' },

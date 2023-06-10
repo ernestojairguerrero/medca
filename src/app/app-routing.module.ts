@@ -5,7 +5,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 const routes: Routes = [
 
-  // { path: '', redirectTo: 'login', pathMatch: 'full'},
+  { path: '', redirectTo: 'login', pathMatch: 'full'},
 
   {
     path: 'login',
@@ -16,10 +16,7 @@ const routes: Routes = [
     loadChildren: () => import('./pages/home/home.module').then( m => m.HomePageModule),
     canActivate: [AuthGuard]
   },
-  {
-    path: 'bills',
-    loadChildren: () => import('./pages/bills/bills.module').then( m => m.BillsPageModule)
-  },
+  
   {
     path: 'profits',
     loadChildren: () => import('./pages/profits/profits.module').then( m => m.ProfitsPageModule)
@@ -32,16 +29,20 @@ const routes: Routes = [
     path: 'storefront',
     loadChildren: () => import('./pages/storefront/storefront.module').then( m => m.StorefrontPageModule)
   },
-
-  { path: '**', redirectTo: 'login', pathMatch: 'full'},
   {
     path: 'banks',
     loadChildren: () => import('./pages/banks/banks.module').then( m => m.BanksPageModule)
   },
   {
+    path: 'bills',
+    loadChildren: () => import('./pages/bills/bills.module').then( m => m.BillsPageModule)
+  },
+  {
     path: 'bills-add',
     loadChildren: () => import('./pages/bills-add/bills-add.module').then( m => m.BillsAddPageModule)
-  }
+  },
+
+  { path: '**', redirectTo: 'login', pathMatch: 'full'},
 
 
 ];
