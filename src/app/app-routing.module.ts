@@ -4,24 +4,22 @@ import { AuthGuard } from './Guard/auth.guard';
 import { BrowserModule } from '@angular/platform-browser';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'login', pathMatch: 'full' },
+
+  { path: '', redirectTo: 'login', pathMatch: 'full'},
 
   {
     path: 'login',
-    loadChildren: () =>
-      import('./pages/login/login.module').then((m) => m.LoginPageModule),
+    loadChildren: () => import('./pages/login/login.module').then( m => m.LoginPageModule)
   },
   {
     path: 'home',
-    loadChildren: () =>
-      import('./pages/home/home.module').then((m) => m.HomePageModule),
-    canActivate: [AuthGuard],
+    loadChildren: () => import('./pages/home/home.module').then( m => m.HomePageModule),
+    canActivate: [AuthGuard]
   },
-
+  
   {
     path: 'profits',
-    loadChildren: () =>
-      import('./pages/profits/profits.module').then((m) => m.ProfitsPageModule),
+    loadChildren: () => import('./pages/profits/profits.module').then( m => m.ProfitsPageModule)
   },
   {
     path: 'settings',
@@ -29,61 +27,36 @@ const routes: Routes = [
   },
   {
     path: 'banks',
-    loadChildren: () =>
-      import('./pages/bancos/banks/banks.module').then((m) => m.BanksPageModule),
+    loadChildren: () => import('./pages/bancos/banks/banks.module').then( m => m.BanksPageModule)
   },
   {
-    path: 'ganancias',
-    loadChildren: () =>
-      import('./pages/ganancias/ganancias.module').then(
-        (m) => m.GananciasPageModule
-      ),
-  },
-  {
-    path: 'ganancias-add',
-    loadChildren: () =>
-      import('./pages/ganancias/ganancias-add/ganancias-add.module').then(
-        (m) => m.GananciasAddPageModule
-      ),
-  },
-
-  {
-    path: 'usuarios',
-    loadChildren: () =>
-      import('./pages/usuarios/usuarios.module').then(
-        (m) => m.UsuariosPageModule
-      ),
-  },
-  {
-    path: 'roles',
-    loadChildren: () =>
-      import('./pages/roles/roles.module').then((m) => m.RolesPageModule),
+    path: 'add-banks',
+    loadChildren: () => import('./pages/bancos/add-bank/add-bank.module').then( m => m.AddBankPageModule)
   },
   // {
-  //   path: 'egresos',
-  //   loadChildren: () => import('./pages/egresos/').then( m => m.EgresosPageModule)
+  //   path: 'ingresos',
+  //   loadChildren: () => import('./pages/ingresos/bills.module').then( m => m.BillsPageModule)
   // },
-  {
-    path: 'egresos-add',
-    loadChildren: () => import('./pages/egresos/egresos-add/egresos-add.module').then( m => m.EgresosAddPageModule)
-  },
+  // {
+  //   path: 'bills-add',
+  //   loadChildren: () => import('./pages/bills-add/bills-add.module').then( m => m.BillsAddPageModule)
+  // },
 
+  { path: '**', redirectTo: 'login', pathMatch: 'full'},
 
-
-
-
-  { path: '**', redirectTo: 'login', pathMatch: 'full' },
 
 ];
 @NgModule({
   imports: [
     BrowserModule,
-    RouterModule.forRoot(routes, {
-      preloadingStrategy: PreloadAllModules,
-      scrollPositionRestoration: 'enabled',
-      useHash: true,
-    }),
+    RouterModule.forRoot(
+      routes,
+      {
+        preloadingStrategy: PreloadAllModules,
+        scrollPositionRestoration: 'enabled',
+        useHash: true
+      })
   ],
-  exports: [RouterModule],
+  exports: [RouterModule]
 })
 export class AppRoutingModule {}
