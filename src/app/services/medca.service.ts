@@ -20,11 +20,6 @@ export class MedcaService {
 
   constructor(private _HttpClient: HttpClient) {}
 
-  // login(credentials:{ email:string; password:string}){
-  //   const url = `${this.baseUrl}/auth/login`;
-  //   return this._HttpClient.post(url, credentials);
-  // }
-
   get dataUser$(): Observable<any> {
     return this.dataUser.asObservable();
   }
@@ -34,16 +29,10 @@ export class MedcaService {
       .post(`${this.baseUrl}/auth/login`, credentials)
       .pipe(
         tap((data: any) => {
-          this.dataUser.next(data);
-          // console.log(data);
-
           const dataString = JSON.stringify(data[0].data);
-
-          // Guardar la cadena de texto en el localStorage
           localStorage.setItem('data', dataString);
 
           localStorage.setItem('token', data[0].token);
-          // localStorage.setItem('data', data[0].data.data);
         })
         // catchError
       );
@@ -51,7 +40,7 @@ export class MedcaService {
 
   logout(): Observable<any> {
     window.localStorage.clear();
-    window.location.reload();
+    // window.location.reload();
     this._Router.navigateByUrl('/login');
     return of(null);
   }

@@ -1,132 +1,70 @@
 .content {
-    margin: 20px;
-
-    .section-1 {
-
-        ion-card {
-            box-shadow: none !important;
-            // background-color: var(--ion-color-primary-tint) !important;
-            padding: 15px 0px;
-            display: flex;
-            align-items: center;
-
-            border-radius: 15px !important;
-
-            .perfil {
-                margin-right: 10px;
-                background-color: white;
-                width: 50px;
-                height: 50px;
-                border-radius: 50%;
-                opacity: 100% !important;
-
-                img {
-                    width: 100%;
-                    height: 100%;
-                    border-radius: 50%;
-                    object-fit: cover;
-                }
-            }
-
-            .info {
-                flex: 1;
-                padding-left: 5px;
-
-                ion-label {
-                    display: flex;
-                    flex-direction: column;
-
-                    h2 {
-                        font-weight: 700;
-                        font-size: 15px;
-                        color: var(--ion-color-primary);
-                    }
-
-                    p {
-                        color: var(--ion-color-primary);
-                    }
-                }
-            }
-
-            .settings {
-                ion-button {
-                    width: 60px;
-                    height: 60px;
-                    border-radius: 50%;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    overflow: hidden;
-                    --background: transparent !important;
-
-                    ion-icon {
-                        width: 100%;
-                        height: 100%;
-                    }
-                }
-            }
-        }
-
-    }
-
-    .section-2 {
-        display: flex;
-        flex-wrap: wrap;
-        margin: 0 !important;
-        justify-content: space-between;
-
-        * {
-            color: var(--ion-color-primary-shade);
-        }
-
-        .title {
-            width: 100%;
-
-            h1 {
-                font-size: 20px;
-                margin-bottom: 30px;
-                font-weight: 700;
-            }
-
-        }
-    }
-
-
-
-
-
+  width: 100%;
+  height: auto;
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 1rem;
 }
 
-ion-modal {
+.heaerHome {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0;
+  border-radius: 1rem;
+  overflow: hidden;
+}
 
-    .profile {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+.dataUser {
+  display: flex;
+  align-items: center;
+}
 
-        .profile-header {
-            text-align: center;
-            margin-bottom: 20px;
+.settings {
+  ion-button {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    --background: transparent !important;
 
-            .go-out {
-                span {
-                    font-size: 15px;
-                    margin: 0 10px 0 0;
-                }
-            }
-
-            img {
-                width: 100px;
-                height: 100px;
-                border-radius: 50%;
-            }
-
-            h2 {
-                margin-top: 10px;
-                margin-bottom: 5px;
-            }
-        }
-
+    ion-icon {
+      width: 100%;
+      height: 100%;
     }
+  }
+}
+
+
+.childBoxContent {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 1rem;
+}
+
+.boxesContent {
+  width: 100%;
+  height: 100%;
+  box-shadow: 0 0 8px 3px rgba(0, 0, 0, .1);
+  border-radius: .3rem;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+a {
+  text-decoration: none;
+  color: var(--ion-color-primary);
+}
+
+@media only screen and (max-width:476px) {
+  .childBoxContent {
+    grid-template-columns: 1fr 1fr;
+  }
 
 }
