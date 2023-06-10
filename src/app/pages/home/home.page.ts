@@ -14,7 +14,7 @@ export class HomePage implements OnInit {
 
   menu = [
     { title: 'Ingresos', icon: '../../../assets/home/earnings.svg', url: '/ganancias' },
-    { title: 'Egresos', icon: '../../../assets/home/reports.svg', url: '' },
+    { title: 'Egresos', icon: '../../../assets/home/reports.svg', url: '/egresos' },
     { title: 'Informe', icon: '../../../assets/home/reports.svg', url: '' },
     { title: 'Graficos', icon: '../../../assets/home/graphics.svg', url: '' },
     { title: 'Usuarios', icon: '../../../assets/home/customer.svg', url: '/roles' },

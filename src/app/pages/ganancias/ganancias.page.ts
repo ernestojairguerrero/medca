@@ -16,7 +16,6 @@ export class GananciasPage implements OnInit {
 
   ira(){
     this.router.navigate(['/ganancias-add']);
-
   }
 
 }

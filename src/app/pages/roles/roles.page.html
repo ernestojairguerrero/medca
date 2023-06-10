@@ -1,16 +1,17 @@
 <app-header title="Roles" ira="/home"></app-header>
 
 <ion-content [fullscreen]="true">
-  <div class="section-content">
+  <div class="page-container">
     <ion-list>
       <ion-list-header>
         <ion-label>Roles</ion-label>
-        <ion-button class="ion-text-capitalize" id="open-modal"
+        <ion-button class="ion-text-capitalize" id="modalRoles"
           >Agregar</ion-button
         >
       </ion-list-header>
 
-      <ion-item class="list-item" (click)="ira()">
+
+      <ion-item class="list-item ion-activatable"  (click)="ira()">
         <ion-thumbnail slot="start">
           <img src="../../../assets/icon/statistics.svg" class="item-image" />
         </ion-thumbnail>
@@ -20,7 +21,7 @@
         </ion-label>
       </ion-item>
 
-      <ion-item class="list-item">
+      <ion-item class="list-item ion-activatable">
         <ion-thumbnail slot="start">
           <img src="../../../assets/icon/statistics.svg" class="item-image" />
         </ion-thumbnail>
@@ -32,26 +33,31 @@
     </ion-list>
   </div>
 
-  <ion-modal trigger="open-modal" (willDismiss)="onWillDismiss($event)">
+  <ion-modal #modalRoles trigger="modalRoles" (willDismiss)="onWillDismiss($event)">
     <ng-template>
       <ion-header>
         <ion-toolbar>
           <ion-buttons slot="start">
             <ion-button (click)="cancel()">Cancel</ion-button>
           </ion-buttons>
-          <ion-buttons slot="end">
-            <ion-button (click)="confirm()" [strong]="true">Confirm</ion-button>
-          </ion-buttons>
         </ion-toolbar>
       </ion-header>
       <ion-content class="ion-padding">
 
+        <h1>Crear rol</h1>
+
         <form>
+          
           <ion-item fill="outline">
             <ion-icon class="icon-input" name="person" slot="start"></ion-icon>
             <ion-label position="floating">Rol</ion-label>
             <ion-input type="text"></ion-input>
           </ion-item>
+
+          <ion-buttons slot="end">
+            <ion-button (click)="confirm()" [strong]="true">Confirm</ion-button>
+          </ion-buttons>
+
         </form>
 
 
