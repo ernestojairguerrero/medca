@@ -38,10 +38,10 @@ const routes: Routes = [
     path: 'add-banks',
     loadChildren: () => import('./pages/bancos/add-bank/add-bank.module').then( m => m.AddBankPageModule)
   },
-  // {
-  //   path: 'ingresos',
-  //   loadChildren: () => import('./pages/ingresos/bills.module').then( m => m.BillsPageModule)
-  // },
+  {
+    path: 'ingresos',
+    loadChildren: () => import('./pages/ingresos/bills.module').then( m => m.IngresosModule)
+  },
   // {
   //   path: 'bills-add',
   //   loadChildren: () => import('./pages/bills-add/bills-add.module').then( m => m.BillsAddPageModule)
