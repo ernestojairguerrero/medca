@@ -3,6 +3,8 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './Guard/auth.guard';
 
 const routes: Routes = [
+
+  { path: '', redirectTo: 'login', pathMatch: 'full'},
   // {
   //   path: '',
   //   loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
@@ -35,7 +37,10 @@ const routes: Routes = [
   {
     path: 'storefront',
     loadChildren: () => import('./pages/storefront/storefront.module').then( m => m.StorefrontPageModule)
-  }
+  },
+
+  { path: '**', redirectTo: 'login', pathMatch: 'full'}
+
 ];
 @NgModule({
   imports: [
