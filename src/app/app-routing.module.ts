@@ -71,6 +71,7 @@ const routes: Routes = [
     loadChildren: () => import('./pages/egresos-add/egresos-add.module').then( m => m.EgresosAddPageModule)
   },
 
+<<<<<<< HEAD
 ];
 @NgModule({
   imports: [
@@ -84,3 +85,60 @@ const routes: Routes = [
   exports: [RouterModule],
 })
 export class AppRoutingModule {}
+=======
+  {
+    path: 'profits',
+    loadChildren: () =>
+      import('./pages/profits/profits.module').then((m) => m.ProfitsPageModule),
+  },
+  {
+    path: 'settings',
+    loadChildren: () =>
+      import('./pages/settings/settings.module').then(
+        (m) => m.SettingsPageModule
+      ),
+  },
+  {
+    path: 'banks',
+    loadChildren: () => import('./pages/bancos/banks/banks.module').then( m => m.BanksPageModule)
+  },
+  {
+    path: 'add-banks',
+    loadChildren: () => import('./pages/bancos/add-bank/add-bank.module').then( m => m.AddBankPageModule)
+  },
+  {
+    path: 'ingresos',
+    loadChildren: () => import('./pages/ingresos/bills.module').then( m => m.IngresosModule)
+  },
+  // {
+  //   path: 'bills-add',
+  //   loadChildren: () => import('./pages/bills-add/bills-add.module').then( m => m.BillsAddPageModule)
+  // },
+
+  {
+    path: 'usuarios',
+    loadChildren: () =>
+      import('./pages/usuarios/usuarios.module').then(
+        (m) => m.UsuariosPageModule
+      ),
+  },
+  {
+    path: 'roles',
+    loadChildren: () =>
+      import('./pages/roles/roles.module').then((m) => m.RolesPageModule),
+  },
+  { path: '**', redirectTo: 'login', pathMatch: 'full' },
+];
+@NgModule({
+  imports: [
+    BrowserModule,
+    RouterModule.forRoot(routes, {
+      preloadingStrategy: PreloadAllModules,
+      scrollPositionRestoration: 'enabled',
+      useHash: true,
+    }),
+  ],
+  exports: [RouterModule],
+})
+export class AppRoutingModule {}
+>>>>>>> 0b7448e483ea921374abf8092928b368c5d2b2fe
