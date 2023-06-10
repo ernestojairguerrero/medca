@@ -25,10 +25,14 @@ const routes: Routes = [
   },
   {
     path: 'settings',
+<<<<<<< HEAD
     loadChildren: () =>
       import('./pages/settings/settings.module').then(
         (m) => m.SettingsPageModule
       ),
+=======
+    loadChildren: () => import('./pages/settings/settings.module').then( m => m.SettingsPageModule)
+>>>>>>> 0819315c08db61834794db950ab6d0312bd83c09
   },
   {
     path: 'banks',
