@@ -1,0 +1,21 @@
+ion-tabs {
+    width: 100%;
+    position: unset;
+    display: unset;
+}
+
+ion-tab-bar {
+    --background: #FFFFFF;
+    border-radius: 18px 18px 0 0;
+    box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.21);
+}
+
+.activo {
+    ion-icon {
+        color: var(--ion-color-primary) !important;
+    }
+
+    ion-label {
+        color: var(--ion-color-primary) !important;
+    }
+}

@@ -1,0 +1,46 @@
+<!-- <ion-tabs class="ion-no-border custom-tab-bar">
+  <ion-tab-bar slot="bottom" class="ion-no-border">
+
+    <ion-tab-button [ngClass]="{ 'activo-h activo' : activo === 'home' }" (click)="ira('home')">
+      <ion-icon src="../../../assets/icon/tabs/home.svg" class="home"></ion-icon>
+      <ion-label>Home</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button [ngClass]="{ 'activo-b activo' : activo === 'bag' }" >
+      <ion-icon src="../../../assets/icon/tabs/bag.svg"></ion-icon>
+      <ion-label>Store</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button [ngClass]="{ 'activo-s activo' : activo === 'search' }" (click)="ira('search')">
+      <ion-icon src="../../../assets/icon/tabs/search.svg"></ion-icon>
+      <ion-label>Destinations</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button [ngClass]="{ 'activo-p activo' : activo === 'person' }" (click)="ira('person')">
+      <ion-icon src="../../../assets/icon/tabs/person.svg"></ion-icon>
+      <ion-label>Profile</ion-label>
+    </ion-tab-button>
+
+  </ion-tab-bar>
+</ion-tabs> -->
+
+<ion-tabs  class="ion-no-border">
+  <ion-tab-bar slot="bottom"  class="ion-no-border">
+    <ion-tab-button [ngClass]="{ 'activo' : activo === 'home' }" (click)="ira('home')">
+      <ion-icon src="../../../assets/icon/home-outline.svg"></ion-icon>
+      <ion-label>Home</ion-label>
+    </ion-tab-button>
+    <ion-tab-button [ngClass]="{ 'activo' : activo === 'profits' }" (click)="ira('profits')">
+      <ion-icon src="../../../assets/icon/stats-chart-outline.svg"></ion-icon>
+      <ion-label>Gastos</ion-label>
+    </ion-tab-button>
+    <ion-tab-button [ngClass]="{ 'activo' : activo === 'bills' }" (click)="ira('bills')">
+      <ion-icon src="../../../assets/icon/cellular-outline.svg"></ion-icon>
+      <ion-label>Ganancias</ion-label>
+    </ion-tab-button>
+    <ion-tab-button [ngClass]="{ 'activo' : activo === 'storefront' }" (click)="ira('storefront')">
+      <ion-icon src="../../../assets/icon/storefront-outline.svg"></ion-icon>
+      <ion-label>Caja chica</ion-label>
+    </ion-tab-button>
+  </ion-tab-bar>
+</ion-tabs>

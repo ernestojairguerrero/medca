@@ -1,0 +1,7 @@
+{
+  "name": "medca",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

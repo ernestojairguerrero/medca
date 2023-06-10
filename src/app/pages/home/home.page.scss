@@ -1,0 +1,132 @@
+.content {
+    margin: 20px;
+
+    .section-1 {
+
+        ion-card {
+            box-shadow: none !important;
+            background-color: var(--ion-color-primary-tint) !important;
+            padding: 15px;
+            display: flex;
+            align-items: center;
+
+            border-radius: 15px !important;
+
+            .perfil {
+                margin-right: 10px;
+                background-color: white;
+                width: 80px;
+                height: 80px;
+                border-radius: 50%;
+                opacity: 100% !important;
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                    border-radius: 50%;
+                    object-fit: cover;
+                }
+            }
+
+            .info {
+                flex: 1;
+                padding-left: 5px;
+
+                ion-label {
+                    display: flex;
+                    flex-direction: column;
+
+                    h2 {
+                        font-weight: 700;
+                        font-size: 20px;
+                        color: var(--ion-color-primary-contrast);
+                    }
+                    p{
+                        color: white !important;
+                    }
+                }
+            }
+        }
+
+    }
+
+    .section-2 {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0 !important;
+        justify-content: space-between;
+        *{
+            color: var(--ion-color-primary-shade);
+        }
+        
+        .div{
+            width: 100%;
+            h1 {
+                font-size: 24px;
+                margin-bottom: 30px;
+                font-weight: 700;
+            }
+    
+        }
+    }
+
+    
+
+
+
+}
+
+ion-modal {
+
+    .profile {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .profile-header {
+            text-align: center;
+            margin-bottom: 20px;
+
+            .go-out {
+                span {
+                    font-size: 15px;
+                    margin: 0 10px 0 0;
+                }
+            }
+
+            img {
+                width: 100px;
+                height: 100px;
+                border-radius: 50%;
+            }
+
+            h2 {
+                margin-top: 10px;
+                margin-bottom: 5px;
+            }
+        }
+
+        .profile-details {
+            text-align: left;
+
+            h3 {
+                margin-bottom: 10px;
+            }
+
+            ul {
+                list-style: none;
+                padding: 0;
+            }
+
+            li {
+                margin-bottom: 5px;
+            }
+
+            li strong {
+                font-weight: bold;
+            }
+        }
+
+    }
+
+}
