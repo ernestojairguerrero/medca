@@ -32,21 +32,10 @@ const routes: Routes = [
     path: 'add-banks',
     loadChildren: () => import('./pages/bancos/add-bank/add-bank.module').then( m => m.AddBankPageModule)
   },
-<<<<<<< HEAD
-  // {
-  //   path: 'ingresos',
-  //   loadChildren: () => import('./pages/').then( m => m.BillsPageModule)
-  // },
-  // {
-  //   path: 'bills-add',
-  //   loadChildren: () => import('./pages/bills-add/bills-add.module').then( m => m.BillsAddPageModule)
-  // },
-=======
   {
     path: 'ingresos',
     loadChildren: () => import('./pages/ingresos/ingresos/ingresos.module').then( m => m.IngresosPageModule)
   },
->>>>>>> 96b53e7e474289212f85a65428da4f455537aa5d
 
   
   {
@@ -76,5 +65,4 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
-
 
