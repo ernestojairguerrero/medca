@@ -1,0 +1,10 @@
+ion-title {
+  text-align: center;
+}
+
+@media only screen and (max-width:476px) {
+  ion-title {
+    text-align: end;
+    padding-right: 1rem;
+  }
+}

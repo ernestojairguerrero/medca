@@ -1,3 +1,7 @@
+a{
+    text-decoration: none !important;
+}
+
 .card {
     
     display: flex;
@@ -13,10 +17,6 @@
     padding: 15px;
     transition: background-color 0.3s ease;
     background-color: #dcdcdc86;
-}
-
-.card:hover {
-    background-color: #dcdcdc;
 }
 
 .card-icon {

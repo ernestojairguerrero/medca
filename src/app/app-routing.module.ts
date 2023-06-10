@@ -6,10 +6,6 @@ import { BrowserModule } from '@angular/platform-browser';
 const routes: Routes = [
 
   { path: '', redirectTo: 'login', pathMatch: 'full'},
-  // {
-  //   path: '',
-  //   loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
-  // },
 
   {
     path: 'login',
@@ -20,10 +16,7 @@ const routes: Routes = [
     loadChildren: () => import('./pages/home/home.module').then( m => m.HomePageModule),
     canActivate: [AuthGuard]
   },
-  {
-    path: 'bills',
-    loadChildren: () => import('./pages/bills/bills.module').then( m => m.BillsPageModule)
-  },
+  
   {
     path: 'profits',
     loadChildren: () => import('./pages/profits/profits.module').then( m => m.ProfitsPageModule)
@@ -33,10 +26,25 @@ const routes: Routes = [
     loadChildren: () => import('./pages/settings/settings.module').then( m => m.SettingsPageModule)
   },
   {
-    path: 'storefront',
-    loadChildren: () => import('./pages/storefront/storefront.module').then( m => m.StorefrontPageModule)
+    path: 'banks',
+    loadChildren: () => import('./pages/bancos/banks/banks.module').then( m => m.BanksPageModule)
   },
+  {
+    path: 'add-banks',
+    loadChildren: () => import('./pages/bancos/add-bank/add-bank.module').then( m => m.AddBankPageModule)
+  },
+  {
+    path: 'ingresos',
+    loadChildren: () => import('./pages/ingresos/bills.module').then( m => m.BillsPageModule)
+  },
+  // {
+  //   path: 'bills-add',
+  //   loadChildren: () => import('./pages/bills-add/bills-add.module').then( m => m.BillsAddPageModule)
+  // },
 
+  { path: '**', redirectTo: 'login', pathMatch: 'full'},
+
+<<<<<<< HEAD
   
   {
     path: 'egresos',
@@ -44,6 +52,8 @@ const routes: Routes = [
   },
   
   { path: '**', redirectTo: 'login', pathMatch: 'full'},
+=======
+>>>>>>> 0819315c08db61834794db950ab6d0312bd83c09
 
 ];
 @NgModule({

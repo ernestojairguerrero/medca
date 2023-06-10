@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { StorefrontPageRoutingModule } from './storefront-routing.module';
+import { AddBankPageRoutingModule } from './add-bank-routing.module';
 
-import { StorefrontPage } from './storefront.page';
+import { AddBankPage } from './add-bank.page';
 import { ComponentsModule } from 'src/app/components/components.module';
 
 @NgModule({
@@ -14,9 +14,10 @@ import { ComponentsModule } from 'src/app/components/components.module';
     CommonModule,
     FormsModule,
     IonicModule,
-    StorefrontPageRoutingModule,
+    AddBankPageRoutingModule,
+    ReactiveFormsModule,
     ComponentsModule
   ],
-  declarations: [StorefrontPage]
+  declarations: [AddBankPage]
 })
-export class StorefrontPageModule {}
+export class AddBankPageModule {}

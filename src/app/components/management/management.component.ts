@@ -10,6 +10,7 @@ export class ManagementComponent  implements OnInit {
   
   @Input() icon: string
   @Input() title: string
+  @Input() ruta: string
 
   constructor() { }
 
