@@ -5,33 +5,44 @@
       <div class="childContainer">
         <div class="logo-container">
           <span class="logo-icon">
-            <!-- <ion-icon name="library-outline"></ion-icon> -->
-            <img src="../../../assets/icon/LogoEmpresaTransp.png" slot="icon-only"/>
+            <ion-icon name="library-outline"></ion-icon>
+            <ion-img src="../../../assets/icon/LogoEmpresaTransp.png" slot="icon-only"></ion-img>
           </span>
-          <h1 class="logo-text">BIENVENIDO</h1>
+          <h3 class="logo-text">Login</h3>
         </div>
   
-        <form (ngSubmit)="login()">
+        <form [formGroup]="loginForm">
+
           <ion-item fill="outline">
-            <ion-icon class="icon-input" name="person" slot="start"></ion-icon>
+            <ion-icon class="icon-input"  name="person" slot="start"></ion-icon>
             <ion-label position="floating">Correo electrónico</ion-label>
-            <ion-input type="email" [(ngModel)]="email" name="email" required></ion-input>
+            <ion-input formControlName="email" type="email" ></ion-input>
           </ion-item>
           
-          <ion-item fill="outline">
+          <ion-item fill="outline" color="primary" class="mt-1">
             <ion-icon class="icon-input" name="key" slot="start"></ion-icon>
             <ion-label position="floating">Contraseña</ion-label>
-            <ion-input type="password" [(ngModel)]="password" name="password" required></ion-input>
+            <ion-input type="password" formControlName="password"></ion-input>
           </ion-item>
-    
+
+          <ng-container *ngIf="loginForm.valid; else noValid">
+            <ion-button (click)="validateForm()" mode="md" expand="block" shape="round" color="primary">
+              <ion-icon slot="end"></ion-icon>
+              <ion-label>Iniciar sesión</ion-label>
+            </ion-button>
+          </ng-container>
+
+          <ng-template #noValid>
+            <ion-button (click)="validateForm()" mode="md" expand="block" shape="round" color="tertiary">
+              <ion-icon slot="end"></ion-icon>
+              <ion-label>Iniciar sesión</ion-label>
+            </ion-button>
+          </ng-template>
+          
           <div class="recovery">
             <a routerLink="/recover">¿Olvidaste tu contraseña?</a>
           </div>
-    
-          <ion-button mode="ios" expand="block" shape="round" color="primary" type="submit">
-            <ion-icon name="log-in" slot="end"></ion-icon>
-            <ion-label>Iniciar sesión</ion-label>
-          </ion-button>
+
         </form>
       </div>
       

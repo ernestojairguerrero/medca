@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
 import { Route, Router } from '@angular/router';
 
-import { BehaviorSubject, Observable, catchError, tap } from 'rxjs';
+import { BehaviorSubject, Observable, catchError, of, tap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -50,8 +50,9 @@ export class MedcaService {
   }
 
   logout(): Observable<any> {
-    this.lo = window.localStorage.clear();
+    window.localStorage.clear();
+    window.location.reload();
     this._Router.navigateByUrl('/login');
-    return this.lo;
+    return of(null);
   }
 }

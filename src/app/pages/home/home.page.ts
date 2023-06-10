@@ -1,6 +1,7 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { IonModal } from '@ionic/angular';
+import { Subject, takeUntil } from 'rxjs';
 // import { OverlayEventDetail } from '@ionic/core/components';
 import { MedcaService } from 'src/app/services/medca.service';
 
@@ -15,7 +16,10 @@ export class HomePage implements OnInit {
   dataResp = localStorage.getItem('data');
   dataUser;
 
-  constructor(private ruta: Router, private _MedcaService: MedcaService) {}
+  private _unsubscribeAll: Subject<any> = new Subject<any>();
+
+  private _MedcaService = inject(MedcaService);
+  private ruta = inject(Router);
 
   ngOnInit() {
     this.getUserData();
@@ -39,11 +43,20 @@ export class HomePage implements OnInit {
   }
 
   logout() {
-    this.cancel();
-    this._MedcaService.logout().subscribe({
+    this._MedcaService.logout()
+    .pipe(takeUntil(this._unsubscribeAll))
+    .subscribe({
       next: () => {
+        this.cancel();
         console.log('response');
       },
     });
   }
+
+  ngOnDestroy(): void {
+    this._unsubscribeAll.next(null);
+    this._unsubscribeAll.complete();
+  }
+  
 }
+

@@ -1,6 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Subject, takeUntil } from 'rxjs';
+
+// Services
+import { InteractionsService } from 'src/app/helpers/interactions.service';
 import { MedcaService } from 'src/app/services/medca.service';
 
 @Component({
@@ -18,45 +22,58 @@ export class LoginPage implements OnInit {
 
   loginForm: FormGroup;
 
-  constructor(private _MedcaService: MedcaService, private router: Router) {}
+  private _unsubscribeAll: Subject<any> = new Subject<any>();
+
+  private interactionSvc = inject(InteractionsService);
+  private router = inject(Router);
+  private _MedcaService = inject(MedcaService);
+
 
   ngOnInit() {
-    this.validateLogin();
+    this.initLoginForm();
   }
-
+  
   initLoginForm() {
+    console.log('initLoginForm');
     this.loginForm = new FormGroup({
       email: new FormControl('', [Validators.required, Validators.email]),
-      password: new FormControl('', [Validators.required]),
+      password: new FormControl('', [Validators.required, Validators.minLength(6)]),
     });
+  }
+
+  validateForm(): any {
+    if (this.loginForm.invalid) {
+      this.interactionSvc.presentToast('Todos los campos son requeridos', 2000, 'danger');
+      return Object.values(this.loginForm.controls)
+        .forEach(control => { control.markAsTouched(); });
+    } else {
+      this.login();
+    }
   }
 
   login() {
-    const credentials = {
-      email: this.email,
-      password: this.password,
-    };
+    const credentials = this.loginForm.value;
 
-    this._MedcaService.login(credentials).subscribe({
-      next: (response: any) => {
-        // const status = response.status;
-        // console.log(response.data)
-        // if (status === 200) {
-
-        // } else {
-        //   alert('Usuario o contraseña incorrecta');
-        // }
-        this.router.navigate(['/home']);
-
-      },
-    });
+    this._MedcaService.login(credentials)
+      .pipe(takeUntil(this._unsubscribeAll))
+      .subscribe({
+        next: (response: any) => {
+          const status = response[0].status;
+          console.log(response[0].status);
+          if (status === true) {
+            this.interactionSvc.presentToast('Bienvenido al sistema', 2000, 'primary');
+            this.router.navigate(['/home']);
+          } else {
+            this.interactionSvc.presentToast('Los datos ingresados son incorrectos', 2000, 'danger');
+            window.localStorage.clear();
+          }
+        },
+      });
   }
 
-  validateLogin(): void {
-    const dataToken = this.token;
-    if (!dataToken) {
-      this.email = '';
-      this.password = '';
-    }
+  ngOnDestroy(): void {
+    this._unsubscribeAll.next(null);
+    this._unsubscribeAll.complete();
   }
+
 }
