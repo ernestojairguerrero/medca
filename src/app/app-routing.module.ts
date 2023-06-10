@@ -26,10 +26,6 @@ const routes: Routes = [
     loadChildren: () => import('./pages/settings/settings.module').then( m => m.SettingsPageModule)
   },
   {
-    path: 'storefront',
-    loadChildren: () => import('./pages/storefront/storefront.module').then( m => m.StorefrontPageModule)
-  },
-  {
     path: 'banks',
     loadChildren: () => import('./pages/bancos/banks/banks.module').then( m => m.BanksPageModule)
   },
