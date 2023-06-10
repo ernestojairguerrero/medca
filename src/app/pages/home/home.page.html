@@ -3,15 +3,20 @@
     <section class="section-1">
       <ion-card>
         <div class="perfil">
-          <img alt="logo" id="modalPerfil" height="40" src="../../../assets/icon/person.svg" />
+          <img alt="logo" id="modalPerfil" src="../../../assets/icon/person.svg" />
         </div>
         <div class="info">
           <ion-label>
             <h2>{{ dataUser.name }}</h2>
-            <p>Propietario</p>
+            <p>{{ dataUser.role.name }}</p>
           </ion-label>
         </div>
-        <div class="otro"></div>
+        <div class="settings">
+          <ion-button fill="clear" id="click-trigger">
+            <ion-icon src="../../../assets/home/settings.svg" slot="icon-only"></ion-icon>
+            <!-- <ion-icon style="font-size: 48px;" name="settings-outline"></ion-icon> -->
+          </ion-button>
+        </div>
       </ion-card>
 
       <ion-modal #modalPerfil mode="ios" trigger="modalPerfil">
@@ -37,19 +42,6 @@
                   </ion-button>
                 </div>
               </div>
-              <!-- <div class="profile-details">
-                <h3>Información personal</h3>
-                <ul>
-                  <li><strong>Nombre:</strong> John Doe</li>
-                  <li><strong>Edad:</strong> 30 años</li>
-                  <li><strong>Ubicación:</strong> Ciudad</li>
-                  <li>
-                    <strong>Correo electrónico:</strong> correo@example.com
-                  </li>
-                </ul>
-              </div> -->
-
-
 
             </div>
           </ion-content>
@@ -58,9 +50,8 @@
     </section>
 
     <section class="section-2">
-      <div class="div">
+      <div class="title">
         <h1>Tu Gestión</h1>
-
       </div>
 
       <app-management icon="../../../assets/home/earnings.svg" title="Ingresos"></app-management>
