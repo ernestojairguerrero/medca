@@ -31,16 +31,20 @@ const routes: Routes = [
   },
   {
     path: 'banks',
-    loadChildren: () => import('./pages/banks/banks.module').then( m => m.BanksPageModule)
+    loadChildren: () => import('./pages/bancos/banks/banks.module').then( m => m.BanksPageModule)
   },
   {
-    path: 'bills',
-    loadChildren: () => import('./pages/bills/bills.module').then( m => m.BillsPageModule)
+    path: 'add-banks',
+    loadChildren: () => import('./pages/bancos/add-bank/add-bank.module').then( m => m.AddBankPageModule)
   },
   {
-    path: 'bills-add',
-    loadChildren: () => import('./pages/bills-add/bills-add.module').then( m => m.BillsAddPageModule)
+    path: 'ingresos',
+    loadChildren: () => import('./pages/ingresos/bills.module').then( m => m.BillsPageModule)
   },
+  // {
+  //   path: 'bills-add',
+  //   loadChildren: () => import('./pages/bills-add/bills-add.module').then( m => m.BillsAddPageModule)
+  // },
 
   { path: '**', redirectTo: 'login', pathMatch: 'full'},
 

@@ -1,0 +1,14 @@
+<app-header title="Agegar banco" url="ingresos"></app-header>
+
+<ion-content [fullscreen]="true">
+  <div class="page-container">
+    <input type="file" (change)="onFileSelected($event)">
+    <p class="mt-2">Nombre del banco</p>
+    <input type="text" [(ngModel)]="imageName">
+    <ion-button class="mt-1" (click)="upload()" expand="block" fill="outline" shape="round" color="primary">
+      Subir archivo
+    </ion-button>
+    <!-- <button (click)="upload()">Subir archivo</button> -->
+
+  </div>
+</ion-content>

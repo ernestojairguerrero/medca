@@ -14,8 +14,8 @@ export class BillsPage implements OnInit {
   ngOnInit() {
   }
 
-  ira(){
-    this.router.navigate(['/bills-add']);
+  addBank(){
+    this.router.navigate(['/add-banks']);
 
   }
 

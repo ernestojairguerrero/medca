@@ -1,12 +1,4 @@
-<!-- <app-header title="Ganancias"></app-header>-->
-<ion-header [translucent]="true" class="ion-no-border">
-  <ion-toolbar color="primary">
-    <ion-buttons slot="start">
-      <ion-back-button defaultHref="/home"></ion-back-button>
-    </ion-buttons>
-    <ion-title>Ingresos</ion-title>
-  </ion-toolbar>
-</ion-header>
+<app-header title="Ingresos" url="home"></app-header>
 
 <ion-content [fullscreen]="true" >
   
@@ -32,7 +24,9 @@
 
       <ion-list-header>
         <ion-label>Movimientos</ion-label>
-        <ion-button class="ion-text-capitalize" (click)="ira()">Agregar</ion-button>
+        <ion-button class="ion-text-capitalize" (click)="addBank()" expand="block" fill="outline" shape="round" color="primary">
+          Agregar
+        </ion-button>
       </ion-list-header>
 
 
