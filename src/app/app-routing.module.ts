@@ -32,6 +32,7 @@ const routes: Routes = [
   },
   {
     path: 'banks',
+<<<<<<< HEAD
     loadChildren: () =>
       import('./pages/banks/banks.module').then((m) => m.BanksPageModule),
   },
@@ -48,7 +49,22 @@ const routes: Routes = [
       import('./pages/ganancias-add/ganancias-add.module').then(
         (m) => m.GananciasAddPageModule
       ),
+=======
+    loadChildren: () => import('./pages/bancos/banks/banks.module').then( m => m.BanksPageModule)
   },
+  {
+    path: 'add-banks',
+    loadChildren: () => import('./pages/bancos/add-bank/add-bank.module').then( m => m.AddBankPageModule)
+  },
+  {
+    path: 'ingresos',
+    loadChildren: () => import('./pages/ingresos/bills.module').then( m => m.BillsPageModule)
+>>>>>>> 6f8049b17b07fc9595d0378207cbc48daccfd332
+  },
+  // {
+  //   path: 'bills-add',
+  //   loadChildren: () => import('./pages/bills-add/bills-add.module').then( m => m.BillsAddPageModule)
+  // },
 
   {
     path: 'usuarios',
