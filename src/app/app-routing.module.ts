@@ -25,14 +25,7 @@ const routes: Routes = [
   },
   {
     path: 'settings',
-<<<<<<< HEAD
-    loadChildren: () =>
-      import('./pages/settings/settings.module').then(
-        (m) => m.SettingsPageModule
-      ),
-=======
     loadChildren: () => import('./pages/settings/settings.module').then( m => m.SettingsPageModule)
->>>>>>> 0819315c08db61834794db950ab6d0312bd83c09
   },
   {
     path: 'banks',
@@ -66,10 +59,10 @@ const routes: Routes = [
     loadChildren: () =>
       import('./pages/roles/roles.module').then((m) => m.RolesPageModule),
   },
-  {
-    path: 'egresos',
-    loadChildren: () => import('./pages/egresos/egresos.module').then( m => m.EgresosPageModule)
-  },
+  // {
+  //   path: 'egresos',
+  //   loadChildren: () => import('./pages/egresos/').then( m => m.EgresosPageModule)
+  // },
   {
     path: 'egresos-add',
     loadChildren: () => import('./pages/egresos/egresos-add/egresos-add.module').then( m => m.EgresosAddPageModule)
