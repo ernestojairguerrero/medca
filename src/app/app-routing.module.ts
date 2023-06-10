@@ -36,10 +36,6 @@ const routes: Routes = [
     path: 'ingresos',
     loadChildren: () => import('./pages/ingresos/ingresos/ingresos.module').then( m => m.IngresosPageModule)
   },
-  // {
-  //   path: 'bills-add',
-  //   loadChildren: () => import('./pages/bills-add/bills-add.module').then( m => m.BillsAddPageModule)
-  // },
 
   
   {
@@ -47,11 +43,11 @@ const routes: Routes = [
     loadChildren: () => import('./pages/egresos/egresos.module').then( m => m.EgresosPageModule)
   },
   
-  { path: '**', redirectTo: 'login', pathMatch: 'full'},
   {
     path: 'edit-ingresos',
     loadChildren: () => import('./pages/ingresos/edit-ingresos/edit-ingresos.module').then( m => m.EditIngresosPageModule)
   },
+  { path: '**', redirectTo: 'login', pathMatch: 'full'},
 
 
 ];
