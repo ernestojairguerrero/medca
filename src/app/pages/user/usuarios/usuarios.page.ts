@@ -1,11 +1,11 @@
-import { ChangeDetectorRef, Component, OnInit, ViewChild, inject } from '@angular/core';
-import { Router } from '@angular/router';
-import { IonModal, NavController } from '@ionic/angular';
-import { OverlayEventDetail } from '@ionic/core/components';
-import { Observable, Subject, of, takeUntil } from 'rxjs';
-import { InteractionsService } from 'src/app/helpers/interactions.service';
-import { usersModel } from '../users.model';
+import { ChangeDetectorRef, Component, OnInit, inject } from '@angular/core';
+import { NavController } from '@ionic/angular';
+import { Subject, takeUntil } from 'rxjs';
+
 import { UsuariosService } from '../usuarios.service';
+import { InteractionsService } from '../../../helpers/interactions.service';
+
+import { usersModel } from '../users.model';
 
 
 @Component({
@@ -21,7 +21,8 @@ export class UsuariosPage implements OnInit {
 
   private _changeDetectorRef = inject(ChangeDetectorRef);
   private _navCtrl = inject(NavController);
-  private __interactionSvc = inject(InteractionsService);
+  private _interactionSvc = inject(InteractionsService);
+  private _userInteractionService = inject(InteractionsService);
   private _UsuariosService = inject(UsuariosService);
 
   ngOnInit() {
@@ -38,11 +39,13 @@ export class UsuariosPage implements OnInit {
       .pipe(takeUntil(this._unsubscribeAll))
       .subscribe({
         next: (users: any) => {
-          console.log(users);
+          console.log(users.data);
           this.users = users.data || [];
+          
           this._changeDetectorRef.detectChanges();
+          return this.users;
         },
-        error: () => this.__interactionSvc.presentToast('Se ha presentado un error', 2000, 'danger')
+        error: () => this._interactionSvc.presentToast('Se ha presentado un error', 2000, 'danger')
       });
   }
 
@@ -55,16 +58,15 @@ export class UsuariosPage implements OnInit {
           console.log(response);
           this.listusers();
           if (response.status === true) {
-            this.__interactionSvc.presentToast(response.message, 1000, 'primary');
+            this._interactionSvc.presentToast(response.message, 1000, 'primary');
           } else {
-            this.__interactionSvc.presentToast(response.message, 2000, 'danger');
+            this._interactionSvc.presentToast(response.message, 2000, 'danger');
           }
         },
         error: () => {
-          this.__interactionSvc.presentToast('Se ha presentado un error', 2000, 'danger');
+          this._interactionSvc.presentToast('Se ha presentado un error', 2000, 'danger');
         }
       });
-    // this._navCtrl.navigateForward(['/edit-usuarios', id]);
   }
 
   ngOnDestroy(): void {

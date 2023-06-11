@@ -1,17 +1,17 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
-import { BehaviorSubject, Observable, catchError, of, tap } from 'rxjs';
-import { GetServerError } from 'src/app/helpers/get-server-error';
-import { environment } from 'src/environments/environment';
-import { usersModel } from './users.model';
+import { BehaviorSubject, Observable, Subject, catchError, takeUntil, tap } from 'rxjs';
+
+import { environment } from '../../../environments/environment.prod';
+import { GetServerError } from '../../helpers/get-server-error';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UsuariosService {
 
-
   private _apiUrl = environment.apiUrl;
+  private _unsubscribeAll: Subject<any> = new Subject<any>();
 
   private users: BehaviorSubject<any> = new BehaviorSubject(null);
   private response: BehaviorSubject<any> = new BehaviorSubject(null);
@@ -26,9 +26,10 @@ export class UsuariosService {
 
   addUser(data: any): Observable<any> {
     return this._http.post(this._apiUrl + 'user-create', data)
+      .pipe(takeUntil(this._unsubscribeAll))
       .pipe(tap((response: any) => {
         this.response.next(response);
-        // this.listusers();
+        this.listusers();
       }),
         catchError(error => {
           let errorMsg: string;
@@ -44,10 +45,10 @@ export class UsuariosService {
       );
   }
 
-  listusers(): Observable<usersModel[]> {
+  listusers(): Observable<any> {
     return this._http.get(`${this._apiUrl}users`,)
-      .pipe(
-        tap((users: any) => this.users.next(users)),
+      .pipe(takeUntil(this._unsubscribeAll))
+      .pipe(tap((users: any) => this.users.next(users)),
         catchError(error => {
           let errorMsg: string;
           if (error.error instanceof ErrorEvent) {
@@ -77,6 +78,11 @@ export class UsuariosService {
           return error;
         })
       );
+  }
+
+  ngOnDestroy(): void {
+    this._unsubscribeAll.next(null);
+    this._unsubscribeAll.complete();
   }
 
 

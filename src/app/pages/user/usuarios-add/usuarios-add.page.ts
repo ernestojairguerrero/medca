@@ -1,10 +1,9 @@
 import { ChangeDetectorRef, Component, OnInit, inject } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { InteractionsService } from 'src/app/helpers/interactions.service';
 import { UsuariosService } from '../usuarios.service';
 import { Observable, Subject, of, takeUntil } from 'rxjs';
 import { NavController } from '@ionic/angular';
-import { usersModel } from '../users.model';
+import { InteractionsService } from '../../../helpers/interactions.service';
 
 @Component({
   selector: 'app-usuarios-add',
@@ -22,7 +21,7 @@ export class UsuariosAddPage implements OnInit {
   private _formBuilder = inject(FormBuilder);
   private _changeDetectorRef = inject(ChangeDetectorRef);
   private _navCtrl = inject(NavController);
-  private __interactionSvc = inject(InteractionsService);
+  private _interactionSvc = inject(InteractionsService);
   private _UsuariosService = inject(UsuariosService);
 
   ngOnInit() {
@@ -40,7 +39,7 @@ export class UsuariosAddPage implements OnInit {
 
   validateForm(): any {
     if (this.userForm.invalid) {
-      this.__interactionSvc.presentToast('Todos los campos son requeridos', 2000, 'danger');
+      this._interactionSvc.presentToast('Todos los campos son requeridos', 2000, 'danger');
       return Object.values(this.userForm.controls)
         .forEach(control => { control.markAsTouched(); });
     } else {
@@ -54,13 +53,13 @@ export class UsuariosAddPage implements OnInit {
       .subscribe({
         next: (response: any) => {
           const status = response[0].status;
+          console.log(response);
           if (status === true) {
-            this.listusers();
-            this.__interactionSvc.presentToast('Usuario agregao satisfactoriamente', 1000, 'primary');
+            this._interactionSvc.presentToast('Usuario agregao satisfactoriamente', 1000, 'primary');
             this._navCtrl.navigateRoot(['/usuarios']);
             this.userForm.reset();
           } else {
-            this.__interactionSvc.presentToast('Los datos ingresados son incorrectos', 1500, 'danger');
+            this._interactionSvc.presentToast('Los datos ingresados son incorrectos', 1500, 'danger');
           }
         },
       });
@@ -68,11 +67,11 @@ export class UsuariosAddPage implements OnInit {
 
   listusers(): void {
     console.log('listusers');
-    this._UsuariosService.listusers()
+    this._UsuariosService.listusers$
       .pipe(takeUntil(this._unsubscribeAll))
       .subscribe({
         next: () => this._changeDetectorRef.detectChanges(),
-        error: () => this.__interactionSvc.presentToast('Se ha presentado un error', 2000, 'danger')
+        error: () => this._interactionSvc.presentToast('Se ha presentado un error', 2000, 'danger')
       });
   }
 

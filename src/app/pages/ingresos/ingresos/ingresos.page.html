@@ -27,11 +27,11 @@
     <div class="bancos">
       <div class="childBancos">
         <a *ngFor="let b of banks" class="boxesImages">
-          <div class="top">
+          <div>
             <ion-img src="{{ b.slog }}"></ion-img>
-            <h3 class="item-title">{{ b.name }}</h3>
+            <p>{{ b.name }}</p>
           </div>
-          <h3 class="item-title">{{ b.total_amount }}</h3>
+          <h3 class="totalAmount">{{ b.total_amount }}</h3>
         </a>
       </div>
     </div>
