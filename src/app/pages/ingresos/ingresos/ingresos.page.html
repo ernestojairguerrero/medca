@@ -1,12 +1,12 @@
 <app-header title="Ingresos" url="home"></app-header>
 
 
-<ion-content [fullscreen]="true" >
-  
-  <div class="section-content">
+<ion-content [fullscreen]="true">
+
+  <div class="page-container">
 
     <ion-card class="total-card">
-      
+
       <section class="ion-text-center">
         <ion-icon name="cash" class="ion-icon"></ion-icon>
         <h3>Total mensual</h3>
@@ -18,20 +18,29 @@
         <h3>Total anual</h3>
         <h2 id="total-amount">$150</h2>
       </section>
-      
+
     </ion-card>
-    
-    <ion-list>
+
 
       <ion-list-header>
-        <ion-label>Movimientos</ion-label>
-        <ion-button class="ion-text-capitalize" (click)="addBank()" expand="block" fill="outline" shape="round" color="primary">
+        <ion-label>Bancos</ion-label>
+        <ion-button class="ion-text-capitalize" (click)="addBank()" expand="block" fill="outline" shape="round"
+          color="primary">
           Agregar
         </ion-button>
       </ion-list-header>
 
+      <div class="bancos">
+        <div class="childBancos">
+          <a href="" *ngFor="let b of banks">
+            <ion-img [src]="b.slog"></ion-img>
+            <h2 class="item-title"> {{b.name }} </h2>
+          </a>
+        </div>
+      </div>
 
-      <ion-item class="list-item">
+
+      <!-- <ion-item class="list-item">
         <ion-thumbnail slot="start">
           <img src="../../../assets/icon/statistics.svg" class="item-image" />
         </ion-thumbnail>
@@ -40,9 +49,9 @@
           <p class="item-date">Fecha de la ganancia</p>
           <h3 class="item-amount">$50</h3>
         </ion-label>
-      </ion-item>
-  
-      <ion-item class="list-item">
+      </ion-item> -->
+
+      <!-- <ion-item class="list-item">
         <ion-thumbnail slot="start">
           <img src="../../../assets/icon/statistics.svg" class="item-image" />
         </ion-thumbnail>
@@ -51,9 +60,8 @@
           <p class="item-date">Fecha de la ganancia</p>
           <h3 class="item-amount">$100</h3>
         </ion-label>
-      </ion-item>
-  
-    </ion-list>
+      </ion-item> -->
+
   </div>
 
 </ion-content>

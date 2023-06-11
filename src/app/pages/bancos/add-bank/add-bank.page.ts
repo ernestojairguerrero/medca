@@ -1,6 +1,8 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { BanksService } from '../banks.service';
 import { Subject, takeUntil } from 'rxjs';
+import { InteractionsService } from 'src/app/helpers/interactions.service';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-add-bank',
@@ -10,31 +12,33 @@ import { Subject, takeUntil } from 'rxjs';
 export class AddBankPage implements OnInit {
 
   selectedFile: File | null = null;
-  imageName = 'mi-foto';
+  imageName = '';
+  nameImage = '';
 
   private _unsubscribeAll: Subject<any> = new Subject<any>();
+  private interactionSvc = inject(InteractionsService);
+  private _navController = inject(NavController);
 
   private _banksService = inject(BanksService);
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   onFileSelected(event: any) {
-    console.log(event.target.files[0]);
     this.selectedFile = event.target.files[0];
+    this.nameImage = event.target.files[0].name;
   }
 
   upload() {
-    console.log(this.selectedFile);
     if (this.selectedFile) {
       this._banksService.uploadFile(this.selectedFile, this.imageName)
         .pipe(takeUntil(this._unsubscribeAll))
         .subscribe({
-          next: (response: any) => {
-            console.log('Archivo subido con éxito');
+          next: () => {
+            this._navController.navigateRoot('/ingresos');
+            return this.interactionSvc.presentToast('Archivo subido con éxito', 1000, 'primary');
           },
-          error: (error: any) => {
-            console.error('Error al subir el archivo:', error);
+          error: () => {
+            return this.interactionSvc.presentToast('Error al subir el archivo:', 1000, 'danger');
           }
         });
     }
