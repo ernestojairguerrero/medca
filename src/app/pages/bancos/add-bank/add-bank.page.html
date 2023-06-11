@@ -1,15 +1,34 @@
 <app-header title="Agegar banco" url="ingresos"></app-header>
 
 <ion-content [fullscreen]="true">
-  <div class="page-container">
-    
-    <input type="file" (change)="onFileSelected($event)">
-    <p class="mt-2">Nombre del banco</p>
-    <input type="text" [(ngModel)]="imageName">
-    <ion-button class="mt-1" (click)="upload()" expand="block" fill="outline" shape="round" color="primary">
-      Subir archivo
-    </ion-button>
-    <!-- <button (click)="upload()">Subir archivo</button> -->
+  <div class="addBanco">
+
+    <div class="childAddBanco">
+      <ng-container *ngIf="!nameImage; else siNameImage">
+        <ion-button class="mt-1" (click)="fileInput.click()" expand="block" fill="outline" shape="round" color="primary">
+          Seleccionar archivo
+        </ion-button>
+        <input #fileInput type="file" style="display: none" (change)="onFileSelected($event)">
+  
+      </ng-container>
+      <ng-template #siNameImage>
+        <ion-text color="primary">
+          <h3>{{nameImage}} </h3>
+        </ion-text>
+      </ng-template>
+  
+      <div class="mt-2">
+        <ion-item fill="outline" class="mt-2">
+          <ion-icon class="icon-input" name="person" slot="start"></ion-icon>
+          <ion-label position="floating">Nombre del banco</ion-label>
+          <ion-input [(ngModel)]="imageName" type="text"></ion-input>
+        </ion-item>
+      </div>
+  
+      <ion-button class="mt-2" (click)="upload()" expand="block" fill="outline" shape="round" color="primary">
+        Subir archivo
+      </ion-button>
+    </div>
 
   </div>
 </ion-content>

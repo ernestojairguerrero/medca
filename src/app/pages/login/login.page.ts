@@ -61,10 +61,10 @@ export class LoginPage implements OnInit {
           const status = response[0].status;
           console.log(response[0].status);
           if (status === true) {
-            this.interactionSvc.presentToast('Bienvenido al sistema', 2000, 'primary');
+            this.interactionSvc.presentToast('Bienvenido al sistema', 1000, 'primary');
             this.router.navigate(['/home']);
           } else {
-            this.interactionSvc.presentToast('Los datos ingresados son incorrectos', 2000, 'danger');
+            this.interactionSvc.presentToast('Los datos ingresados son incorrectos', 1500, 'danger');
             window.localStorage.clear();
           }
         },
