@@ -1,4 +1,4 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit, inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { BanksService } from '../../bancos/banks.service';
 import { Subject, takeUntil } from 'rxjs';
@@ -15,6 +15,7 @@ export class IngresosPage implements OnInit {
 
   private router = inject(Router);
   private _banksService = inject(BanksService);
+  private _changeDetectorRef = inject(ChangeDetectorRef);
 
   private _unsubscribeAll: Subject<any> = new Subject<any>();
 
@@ -22,20 +23,19 @@ export class IngresosPage implements OnInit {
     this.listBanks();
   }
 
-  addBank(){
+  addBank() {
     this.router.navigate(['/add-banks']);
 
   }
 
   listBanks() {
-    return this._banksService.listBanks()
-      .pipe(takeUntil(this._unsubscribeAll))
-      .subscribe({
-        next: (banks: listBanksModel[]) => {
-          console.log(banks);
-          this.banks = banks;
-        }
-      })
+    this._banksService.listBanks()
+      .subscribe((banks: any) => {
+        this.banks = banks.map((bank: any) => ({
+          ...bank,
+          total_amount: parseFloat(bank.total_amount)
+        }));
+      });
   }
 
   ngOnDestroy(): void {
