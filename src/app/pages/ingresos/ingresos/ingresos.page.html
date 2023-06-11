@@ -22,19 +22,20 @@
     </ion-card>
 
 
-      <ion-list-header>
-        <ion-label>Bancos</ion-label>
+      <div class="boxTitle">
+        <h3>Bancos</h3>
         <ion-button class="ion-text-capitalize" (click)="addBank()" expand="block" fill="outline" shape="round"
           color="primary">
           Agregar
         </ion-button>
-      </ion-list-header>
+      </div>
 
       <div class="bancos">
         <div class="childBancos">
           <a href="" *ngFor="let b of banks">
             <ion-img [src]="b.slog"></ion-img>
-            <h2 class="item-title"> {{b.name }} </h2>
+            <h3 class="item-title"> {{b.name }} </h3>
+            <h3 class="item-title"> {{b.total_amount }} </h3>
           </a>
         </div>
       </div>
