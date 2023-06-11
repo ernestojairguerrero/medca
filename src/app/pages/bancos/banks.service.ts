@@ -33,7 +33,7 @@ export class BanksService {
   }
 
   listBanks(): Observable<listBanksModel[]> {
-    return this._http.get(`${this._apiUrl}banco`,)
+    return this._http.get(`${this._apiUrl}bancos`,)
       .pipe(
         tap((documents: any) => this.banks.next(documents)),
         catchError(error => {
