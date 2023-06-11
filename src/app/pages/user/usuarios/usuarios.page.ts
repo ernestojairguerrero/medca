@@ -28,24 +28,43 @@ export class UsuariosPage implements OnInit {
     this.listusers();
   }
 
-  addUser(){
+  addUser() {
     this._navCtrl.navigateForward(['/add-usuarios']);
+    this._changeDetectorRef.detectChanges();
   }
 
-  listusers(): Observable<any> {
+  listusers(): void {
     this._UsuariosService.listusers()
-    .pipe(takeUntil(this._unsubscribeAll))
+      .pipe(takeUntil(this._unsubscribeAll))
       .subscribe({
-        next: (users: usersModel[]) => {
+        next: (users: any) => {
           console.log(users);
-          this.users = users;
+          this.users = users.data || [];
           this._changeDetectorRef.detectChanges();
         },
-        error: (error: any) => {
-          console.log(error);
+        error: () => this.__interactionSvc.presentToast('Se ha presentado un error', 2000, 'danger')
+      });
+  }
+
+  deleteUser(id: number) {
+    console.log(id);
+    return this._UsuariosService.deleteUser(id)
+      .pipe(takeUntil(this._unsubscribeAll))
+      .subscribe({
+        next: (response: any) => {
+          console.log(response);
+          this.listusers();
+          if (response.status === true) {
+            this.__interactionSvc.presentToast(response.message, 1000, 'primary');
+          } else {
+            this.__interactionSvc.presentToast(response.message, 2000, 'danger');
+          }
+        },
+        error: () => {
+          this.__interactionSvc.presentToast('Se ha presentado un error', 2000, 'danger');
         }
       });
-    return of(null);
+    // this._navCtrl.navigateForward(['/edit-usuarios', id]);
   }
 
   ngOnDestroy(): void {

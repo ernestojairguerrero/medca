@@ -12,7 +12,7 @@ import { usersModel } from '../users.model';
   styleUrls: ['./usuarios-add.page.scss'],
 })
 export class UsuariosAddPage implements OnInit {
-  
+
   roles: string[] = ['Supervisor', 'Gerente', 'Cajeros'];
 
   userForm: FormGroup;
@@ -25,7 +25,7 @@ export class UsuariosAddPage implements OnInit {
   private __interactionSvc = inject(InteractionsService);
   private _UsuariosService = inject(UsuariosService);
 
-  ngOnInit() { 
+  ngOnInit() {
     this.inituserForm();
   }
 
@@ -39,7 +39,6 @@ export class UsuariosAddPage implements OnInit {
   }
 
   validateForm(): any {
-    console.warn(this.userForm.value);
     if (this.userForm.invalid) {
       this.__interactionSvc.presentToast('Todos los campos son requeridos', 2000, 'danger');
       return Object.values(this.userForm.controls)
@@ -50,16 +49,16 @@ export class UsuariosAddPage implements OnInit {
   }
 
   adduser() {
-
     this._UsuariosService.addUser(this.userForm.value)
       .pipe(takeUntil(this._unsubscribeAll))
       .subscribe({
         next: (response: any) => {
           const status = response[0].status;
-          console.log(response[0].status);
           if (status === true) {
+            this.listusers();
             this.__interactionSvc.presentToast('Usuario agregao satisfactoriamente', 1000, 'primary');
             this._navCtrl.navigateRoot(['/usuarios']);
+            this.userForm.reset();
           } else {
             this.__interactionSvc.presentToast('Los datos ingresados son incorrectos', 1500, 'danger');
           }
@@ -67,9 +66,19 @@ export class UsuariosAddPage implements OnInit {
       });
   }
 
+  listusers(): void {
+    console.log('listusers');
+    this._UsuariosService.listusers()
+      .pipe(takeUntil(this._unsubscribeAll))
+      .subscribe({
+        next: () => this._changeDetectorRef.detectChanges(),
+        error: () => this.__interactionSvc.presentToast('Se ha presentado un error', 2000, 'danger')
+      });
+  }
+
   ngOnDestroy(): void {
     this._unsubscribeAll.next(null);
     this._unsubscribeAll.complete();
   }
-  
+
 }
