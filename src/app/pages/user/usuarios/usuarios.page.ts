@@ -11,7 +11,6 @@ import { OverlayEventDetail } from '@ionic/core/components';
 })
 export class UsuariosPage implements OnInit {
 
-  @ViewChild(IonModal) modal: IonModal;
 
 
   private router = inject(Router);
@@ -19,22 +18,8 @@ export class UsuariosPage implements OnInit {
   ngOnInit() {
   }
 
-  cancel() {
-    this.modal.dismiss(null, 'cancel');
-  }
-
-  confirm() {
-    this.modal.dismiss('confirm');
-  }
-
-  onWillDismiss(event: Event) {
-    const ev = event as CustomEvent<OverlayEventDetail<string>>;
-    if (ev.detail.role === 'confirm') {
-    }
-  }
-
-  ira(){
-    this.router.navigate(['/usuarios'])
+  addUser(){
+    this.router.navigate(['/usuarios-add'])
   }
 
 }

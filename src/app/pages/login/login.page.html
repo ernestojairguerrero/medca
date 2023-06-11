@@ -27,14 +27,14 @@
 
           <ng-container *ngIf="loginForm.valid; else noValid">
             <ion-button (click)="validateForm()" mode="md" expand="block" shape="round" color="primary">
-              <ion-icon slot="end"></ion-icon>
+              <!-- <ion-icon slot="end"></ion-icon> -->
               <ion-label>Iniciar sesión</ion-label>
             </ion-button>
           </ng-container>
 
           <ng-template #noValid>
             <ion-button (click)="validateForm()" mode="md" expand="block" shape="round" color="tertiary">
-              <ion-icon slot="end"></ion-icon>
+              <!-- <ion-icon slot="end"></ion-icon> -->
               <ion-label>Iniciar sesión</ion-label>
             </ion-button>
           </ng-template>

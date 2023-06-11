@@ -1,0 +1,37 @@
+<app-header title="Usuarios" ira="/roles"></app-header>
+
+<ion-content [fullscreen]="true">
+  <div class="page-container">
+    <ion-list>
+
+      <ion-list-header>
+        <ion-label>Usuarios</ion-label>
+        <ion-button class="ion-text-capitalize" (click)="addUser()" expand="block" fill="outline" shape="round" color="primary">
+          Agregar
+        </ion-button>
+      </ion-list-header>
+
+      <ion-item lines="full" class="list-item">
+        <ion-thumbnail slot="start">
+          <img src="../../../assets/icon/statistics.svg" class="item-image" />
+        </ion-thumbnail>
+        <ion-label>
+          <h2 class="item-title">Ernesto Guerrero</h2>
+          <h3 class="item-amount">ernesto@gmail.com</h3>
+        </ion-label>
+        <span class="rol" slot="end">Administrador</span>
+      </ion-item>
+
+      <ion-item class="list-item">
+        <ion-thumbnail slot="start">
+          <img src="../../../assets/icon/statistics.svg" class="item-image" />
+        </ion-thumbnail>
+        <ion-label>
+          <h2 class="item-title">John Doe</h2>
+          <h3 class="item-amount">John@gmail.com</h3>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+  </div>
+
+</ion-content>

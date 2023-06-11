@@ -1,47 +1,6 @@
-.section-content {
-    padding: 20px;
-}
-
-
-.total-card {
-    box-shadow: none;
-    border: 1px solid #ccc;
-    border-radius: 15px;
-    padding: 10px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-
-    .total-card section {
-        flex-basis: 50%;
-        text-align: center;
-    }
-    
-    .ion-icon {
-        font-size: 35px;
-        margin-bottom: -10px;
-    }
-    
-    h3 {
-        font-size: 15px;
-    }
-    
-    h2 {
-        font-size: 20px;
-        font-weight: 700;
-        margin-top: 0;
-    }
-}
-
-
-
-
-
-
 
 ion-list {
-    margin: 20px -20px !important;
+    margin: 0px -20px 20px -20px !important;
 
     ion-list-header {
         padding: 0 20px;
@@ -56,7 +15,7 @@ ion-list {
     .list-item {
         display: flex;
         align-items: center;
-        margin-top: 8px;
+        // margin-top: 8px;
 
         .item-image {
             padding: 5px;
@@ -79,5 +38,13 @@ ion-list {
                 color: gray;
             }
         }
+        .rol{
+            font-size: 11px;
+            color: rgba(184, 184, 184, 0.708);
+        }
     }
+}
+
+.icon-input {
+    padding-right: 10px !important;
 }

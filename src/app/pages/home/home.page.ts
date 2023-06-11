@@ -17,7 +17,7 @@ export class HomePage implements OnInit {
     { title: 'Egresos', icon: '../../../assets/home/reports.svg', url: '/egresos' },
     { title: 'Informe', icon: '../../../assets/home/reports.svg', url: '' },
     { title: 'Graficos', icon: '../../../assets/home/graphics.svg', url: '' },
-    { title: 'Usuarios', icon: '../../../assets/home/customer.svg', url: '/roles' },
+    { title: 'Usuarios', icon: '../../../assets/home/customer.svg', url: '/usuarios' },
     { title: 'Proveedor', icon: '../../../assets/home/supplier.svg', url: '' },
   ]
 

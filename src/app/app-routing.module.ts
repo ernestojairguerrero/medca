@@ -15,11 +15,6 @@ const routes: Routes = [
     path: 'home',
     loadChildren: () => import('./pages/home/home.module').then( m => m.HomePageModule),
   },
-  
-  {
-    path: 'profits',
-    loadChildren: () => import('./pages/profits/profits.module').then( m => m.ProfitsPageModule)
-  },
   {
     path: 'settings',
     loadChildren: () => import('./pages/settings/settings.module').then( m => m.SettingsPageModule)
@@ -35,19 +30,29 @@ const routes: Routes = [
   {
     path: 'ingresos',
     loadChildren: () => import('./pages/ingresos/ingresos/ingresos.module').then( m => m.IngresosPageModule)
-  },
-
-  
+  },  
   {
     path: 'egresos',
     loadChildren: () => import('./pages/egresos/egresos.module').then( m => m.EgresosPageModule)
   },
-  
+  {
+    path: 'roles',
+    loadChildren: () => import('./pages/roles/roles.module').then( m => m.RolesPageModule)
+  },
+  {
+    path: 'usuarios',
+    loadChildren: () => import('./pages/user/usuarios/usuarios.module').then( m => m.UsuariosPageModule)
+  },
   {
     path: 'edit-ingresos',
     loadChildren: () => import('./pages/ingresos/edit-ingresos/edit-ingresos.module').then( m => m.EditIngresosPageModule)
   },
+  {
+    path: 'usuarios-add',
+    loadChildren: () => import('./pages/user/usuarios-add/usuarios-add.module').then( m => m.UsuariosAddPageModule)
+  },
   { path: '**', redirectTo: 'login', pathMatch: 'full'},
+
 
 
 ];

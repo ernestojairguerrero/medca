@@ -1,0 +1,34 @@
+<app-header title="Agregar usuario" ruta="/usuarios"></app-header>
+
+<ion-content [fullscreen]="true">
+
+  <div class="page-container">
+    <form>
+      <ion-item fill="outline">
+        <ion-icon class="icon-input" name="person" slot="start"></ion-icon>
+        <ion-label position="floating">Nombre</ion-label>
+        <ion-input type="text"></ion-input>
+      </ion-item>
+  
+      <ion-item fill="outline" class="mt-1">
+        <ion-icon class="icon-input" name="person" slot="start"></ion-icon>
+        <ion-label position="floating">Correo electronico</ion-label>
+        <ion-input type="email"></ion-input>
+      </ion-item>
+  
+      <ion-select label="Rol" class="mt-1" label-placement="floating" fill="outline" interface="popover">
+        <ion-select-option *ngFor="let role of roles" [value]="role">{{ role }}</ion-select-option>        
+      </ion-select>
+      
+      <ion-item fill="outline" class="mt-1">
+        <ion-icon class="icon-input" name="person" slot="start"></ion-icon>
+        <ion-label position="floating">Contraseña</ion-label>
+        <ion-input type="password"></ion-input>
+      </ion-item>
+  
+      <ion-button [strong]="true" expand="block" fill="outline" shape="round" color="primary" class="mt-1">Confirm</ion-button>
+  
+    </form>
+  </div>
+
+</ion-content>
