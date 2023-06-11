@@ -44,15 +44,28 @@
   width: 100%;
   height: auto;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
   grid-gap: 1rem;
   overflow: hidden;
-  padding: 1rem 0;
+  padding: 1rem;
+  ion-img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    overflow: hidden;
+  }
   a{
     text-decoration: none;
     color: #000;
     box-shadow:0 0 8px 3px rgba(0,0,0,.1);
     border-radius: .5rem;
     text-align: center;
+  }
+  .boxesImages{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
   }
 }

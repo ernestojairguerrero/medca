@@ -21,7 +21,7 @@ export class GetServerError {
   }
 
   showError(errorMsg: string): any {
-    return this.interactionSvc.presentToast(`Se ha presentado un error: ${errorMsg}`, 1000, 'danger');
+    return this.interactionSvc.presentToast(`Se ha presentado un error: `, 4000, 'danger');
   }
 
   extractError(error: HttpErrorResponse): any {

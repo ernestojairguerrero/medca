@@ -20,9 +20,7 @@ export class BanksService {
   private _http = inject(HttpClient);
   private _getServerError = inject(GetServerError);
 
-  get banks$(): Observable<any> {
-    return this.banks.asObservable();
-  }
+  get banks$(): Observable<any> { return this.banks.asObservable(); }
   
   uploadFile(file: File, name: string): Observable<any> {
     const formData = new FormData();
@@ -35,7 +33,10 @@ export class BanksService {
   listBanks(): Observable<listBanksModel[]> {
     return this._http.get(`${this._apiUrl}bancos`,)
       .pipe(
-        tap((documents: any) => this.banks.next(documents)),
+        tap((documents: any) => {
+          console.log(documents);
+          this.banks.next(documents);
+        }),
         catchError(error => {
           let errorMsg: string;
           if (error.error instanceof ErrorEvent) {
