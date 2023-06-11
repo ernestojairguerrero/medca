@@ -43,15 +43,15 @@ const routes: Routes = [
   },  
   {
     path: 'usuarios',
-    loadChildren: () => import('./pages/usuarios/usuarios.module').then( m => m.UsuariosPageModule)
+    loadChildren: () => import('./pages/user/usuarios/usuarios.module').then( m => m.UsuariosPageModule)
+  },
+  {
+    path: 'add-usuarios',
+    loadChildren: () => import('./pages/user/usuarios-add/usuarios-add.module').then( m => m.UsuariosAddPageModule)
   },
   {
     path: 'edit-ingresos',
     loadChildren: () => import('./pages/ingresos/edit-ingresos/edit-ingresos.module').then( m => m.EditIngresosPageModule)
-  },
-  {
-    path: 'usuarios-add',
-    loadChildren: () => import('./pages/user/usuarios-add/usuarios-add.module').then( m => m.UsuariosAddPageModule)
   },
   { path: '**', redirectTo: 'login', pathMatch: 'full'},
 

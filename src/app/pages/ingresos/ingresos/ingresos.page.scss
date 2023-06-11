@@ -19,12 +19,13 @@
   }
 
   h3 {
-    font-size: 18px;
+    font-size: 15px;
   }
 
   h2 {
-    font-size: 28px;
+    font-size: 20px;
     margin-top: 0;
+    font-weight: 600;
   }
 }
 .boxTitle{
@@ -38,38 +39,6 @@
 
 
 
-
-
-ion-list {
-  margin: 20px -20px !important;
-
-  .list-item {
-    display: flex;
-    align-items: center;
-    margin-top: 8px;
-
-    .item-image {
-      padding: 5px;
-      margin-right: 10px;
-    }
-
-    ion-label {
-      margin-left: 10px;
-
-      .item-title {
-        font-weight: bold;
-      }
-
-      .item-date {
-        color: gray;
-      }
-
-      .item-amount {
-        font-weight: bold;
-      }
-    }
-  }
-}
 
 .childBancos {
   width: 100%;

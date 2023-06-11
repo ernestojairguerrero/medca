@@ -19,7 +19,7 @@ export class UsuariosPage implements OnInit {
   }
 
   addUser(){
-    this.router.navigate(['/usuarios-add'])
+    this.router.navigate(['/add-usuarios'])
   }
 
 }
